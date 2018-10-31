@@ -3,7 +3,8 @@
 
 <!-- Head tag -->
 <head><meta name="generator" content="Hexo 3.8.0">
-
+    <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+    <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -162,22 +163,26 @@
     <!-- Page Header -->
 <!-- Set your background image for this header in your post front-matter: cover -->
 
+
 <header>
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading" style="margin-top: 10rem">
-                    <h1>小程序分享图片生成方案实现</h1>
-                    
-                    <span class="meta" style="color: #9EABB3; font-size: 1.5rem;">
+                    <h1>
+                        小程序分享图片生成方案实现
+                    </h1>
+
+                    <span style="color: #9EABB3; font-size: 1.5rem;">
                         <!-- Date and Author -->
                         
-                            Posted by 生忘 on
+                        生忘
+                         | 
                         
-                        
-                            2018-07-07
+                        2018-07-07
                         
                     </span>
+                    <span style="color: #9EABB3; font-size: 1.5rem;"> | 浏览量：<span id="busuanzi_value_page_pv"></span>次</span>
                 </div>
             </div>
         </div>
@@ -190,25 +195,25 @@
         <div class="row">
 
             <!-- Tags and categories -->
-           
-                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
-                    
-                        
+            
+            <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                
+                
 
 
 <a href="/tags/小程序/">#小程序</a> <a href="/tags/组件/">#组件</a>
 
 
-                    
-                </div>
-                <div class="col-lg-4 col-md-5 post-categories">
-                    
-                        
+                
+            </div>
+            <div class="col-lg-4 col-md-5 post-categories">
+                
+                
 
 <a href="/categories/小程序/">小程序</a>
 
-                    
-                </div>
+                
+            </div>
             
 
             <!-- Gallery -->
@@ -395,11 +400,23 @@
 
             <!-- Comments -->
             
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h3>评论</h3>
+<div id="comments">
+</div>
+<script>
+    const gitment = new Gitment({
+        owner: 'Kujiale-Mobile',
+        repo: 'https://github.com/Kujiale-Mobile/Blog.git',
+        oauth: {
+            client_id: '3796c932b6130b5f8a5e',
+            client_secret: '708e5b019d02a6a6e425189044ae945ed45815bb',
+        },
+    })
 
-
-                </div>
+    gitment.render('comments')
+</script>
+            </div>
             
         </div>
     </div>

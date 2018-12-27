@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.8.0">
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="酷家乐产品包含了 iOS，Android，Web 页面等多端实现，为了给用户提供更优质的产品体验，在上线前需要进行各项测试，其中回归测试多由测试人员手动执行，耗费了大量人力，并且还可能存在漏测问题。鉴于此，我们在跨端的 UI 自动化上面做了大量的优化和思考，实现了 KoolTest 的 跨端 UI ">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="酷家乐移动前端团队">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="跨平台 UI 自动化测试解决方案 - KoolTest">
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="酷家乐产品包含了 iOS，Android，Web 页面等多端实现，为了给用户提供更优质的产品体验，在上线前需要进行各项测试，其中回归测试多由测试人员手动执行，耗费了大量人力，并且还可能存在漏测问题。鉴于此，我们在跨端的 UI 自动化上面做了大量的优化和思考，实现了 KoolTest 的 跨端 UI ">
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="移动前端团队博客">
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article">
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://yoursite.comhttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg">
+    
+
+        <meta name="twitter:card" content="summary_large_image">
+
+    
+
+    
+        <meta name="twitter:image" content="http://yoursite.comhttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg">
+    
+
+    <!-- Title -->
+    
+    <title>跨平台 UI 自动化测试解决方案 - KoolTest - 移动前端团队博客</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+    <link rel="icon" href="https://avatars0.githubusercontent.com/u/40188012?s=200&v=4">
+    
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">酷家乐</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                首页
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                文章目录
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/about">
+                            
+                                关于我们
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/Kujiale-Mobile">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+
+<header>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading" style="margin-top: 10rem">
+                    <h1>
+                        跨平台 UI 自动化测试解决方案 - KoolTest
+                    </h1>
+
+                    <span style="color: #9EABB3; font-size: 1.5rem;">
+                        <!-- Date and Author -->
+                        
+                        冬青
+                         | 
+                        
+                        2018-11-11
+                        
+                    </span>
+                    <span style="color: #9EABB3; font-size: 1.5rem;"> | 浏览量：<span id="busuanzi_value_page_pv"></span>次</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+            
+            <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                
+                
+
+
+<a href="/tags/自动化测试/">#自动化测试</a>
+
+
+                
+            </div>
+            <div class="col-lg-4 col-md-5 post-categories">
+                
+                
+
+<a href="/categories/测试/">测试</a>
+
+                
+            </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>酷家乐产品包含了 iOS，Android，Web 页面等多端实现，为了给用户提供更优质的产品体验，在上线前需要进行各项测试，其中回归测试多由测试人员手动执行，耗费了大量人力，并且还可能存在漏测问题。鉴于此，我们在跨端的 UI 自动化上面做了大量的优化和思考，实现了 KoolTest 的 跨端 UI 自动化测试方案，用以降低人力成本。我们想通过本篇文章和大家分享下，KoolTest 是如何解决目前在 UI 自动化上面遇到的一些痛点的。</p>
+<p>首先我们认为，一个好的 UI 自动化测试平台需要具备以下几个原则：</p>
+<p>1，<strong>独立性</strong>；测试人员编写脚本不需要过多的依赖开发进行配合修改，比如要加 ID 才能进行元素定位。</p>
+<p>2，<strong>健壮性</strong>；一套脚本可以经得住考验，不能动不动就修改。</p>
+<p>3，<strong>扩展性</strong>；一套规则可适用多端，功能可插拔，方便实现新命令等。</p>
+<h1 id="回顾下历史"><a href="#回顾下历史" class="headerlink" title="回顾下历史"></a>回顾下历史</h1><p>搞过 Web 自动化的肯定知道 <a href="https://www.seleniumhq.org/" target="_blank" rel="noopener">Selenium</a>，Selenium 于 2004 年被 Jason Huggins 开发出来，2007 年 Jason 加入了 Google，2009 年 Jason 的前同事开发出来一个更牛逼的工具叫 WebDriver。然后他们就一起开了个会把两个工具合并了。Selenium + Webdriver 的方案在 2012 被 W3C 吸纳作为<a href="https://www.w3.org/TR/webdriver1/" target="_blank" rel="noopener">国际标准</a>。</p>
+<p>不管 iOS、Android 还是 Web 端，界面布局归根结底都是树状的结构，是可以用 XML 方式来描述的。而往往不同的平台为了面向开发者友好，也提供了各自 UI 自动化测试方案。比如 iOS 平台提供了 <a href="https://developer.apple.com/documentation/xctest/user_interface_tests" target="_blank" rel="noopener">XCUITest</a> 。而 Android 中有 <a href="https://developer.android.com/training/testing/ui-automator" target="_blank" rel="noopener">UIAutomator</a>。这些框架都提供给了开发者获取和操作页面元素的能力。但各自平台有着各自的规则，如果一个测试人员要想搞定这三方平台的测试，那他 Android、iOS 编程统统都会才行。</p>
+<p>因为 UIAutomator 和 XCUITest 都是黑盒测试框架，后来有大牛突然灵光一闪，我们能不能把客户端的 UI 测试行为都封装起来，然后也用 WebDriver 协议来驱动呢？然后就有了 <a href="https://github.com/appium/appium" target="_blank" rel="noopener">Appium</a> ，Appium 最初是为了解决 iOS 的自动化测试问题，后来扩展到不同的客户端，Appium 针对不同平台封装了不同的 Driver，像 Windows Driver、Mac Driver、UiAutomator Driver，并且在上层的行为驱动都遵循 WebDriver 协议。Appium 后来把在 iOS 上的驱动换成了 Facebook 出品的 <a href="https://github.com/facebook/webdriveragent" target="_blank" rel="noopener">WebDriverAgent</a>（WDA）。</p>
+<p><img src="https://user-images.githubusercontent.com/4279515/48190101-bfe97c80-e37c-11e8-9584-10df6b4d21c8.png" alt=""></p>
+<p>如上图所示，只要我们可以针对不同客户端写出其对应的驱动程序，开启一个服务，接收 WebDriver 协议命令后作出对应操作就可以了。如上的 WDA 就是封装了 XCUITest。并且在这个模型下 Client 端很灵活，你可以自由选择开发语言和开发形式，因为最终的调用都是通过接口方式完成的。一切看起来都是这么的和谐、完美。但 Appium 是面向客户端的自动化测试框架，人们继续使用 Selenium 来做 Web 测试，只有在想到客户端测试时再接上一个 Appium，就像 RobotFramework 做的。并且由于不同平台的差异性，Appium 不能很完美的践行 WebDriver 协议，也导致了许许多多的坑。</p>
+<h1 id="如何统一"><a href="#如何统一" class="headerlink" title="如何统一"></a>如何统一</h1><p>从历史中我们能看到，Appium 的 Server 部分也是遵循 WebDriver 协议的，而 Client 端相当于一个 WebDriver 协议的请求封装。基于我们对源码的阅读，发现 Appium 的 Client 端实现直接是基于 Selenium 开发的。而 Selenium 就是支持 Web 测试的。所以我们想，能不能直接使用 Appium 的 Client 端同时实现 Web 和客户端的测试呢？为了尝试，我们调整了下架构，如下</p>
+<p><img src="https://user-images.githubusercontent.com/4279515/48189922-3f2a8080-e37c-11e8-8c46-98d428daae8d.png" alt=""></p>
+<p>针对此，我们需要一套配置管理，让我们的 Client 可以针对不同的端进行运行。这边我们选择了 <code>yml</code> 格式作为我们配置的承载，比如下面就是针对 Huawei 荣耀 8 手机进行测试的配置。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">platform: android</span><br><span class="line">deviceName: HuaweiHonor8</span><br><span class="line">udid: xxxxx</span><br><span class="line">app: /Users/qunhe/Downloads/kujiale.apk</span><br><span class="line">server: http://localhost:4723</span><br></pre></td></tr></table></figure>
+<p>另外虽然 iOS、Android、Web 不同，但他们在元素查找、元素操作方式上有一定的共性，当然也有很多区别。比如 iOS 和 Android 支持 AccessibilityId 定位，而 Web 不支持；再比如 Web 支持的 class 方式查找，客户端平台不支持等，并且 iOS 和 Android 本身也有不一样的地方。所以我们在实现同时面向三者的测试平台时，需要特别注意这些差异的地方，尽量使用共性的部分，在使用平台独有功能时，注意在代码中进行平台判断。我们把其三者的关系梳理如下，其中 AppiumDriver 是客户端测试共性的类，基于 Selenium 提供的 RemoteWebDriver 实现，iOS 和 Android 的 Driver 基于 AppiumDriver 实现。</p>
+<p><img src="https://user-images.githubusercontent.com/4279515/47830247-0ad82280-ddc6-11e8-8777-376af9ebac15.png" alt=""></p>
+<p>从上可知 Appium 的 Client 端是支持 Web 的，只是 Appium 的 Server 端不支持，只要我们把 Server 换成其他浏览器的 Driver，然后对 Appium 端进行简单的改造，就能达到跨平台的目的。不过需要我们在处理上，注意 Driver 的分层。分层后，我们在使用相关的接口时，要遵循以下几个原则：1，尽量用 WebDriver 提供的方法，而只有客户端独有时才用 AppiumDriver 的方法；2，只有 iOS 或 Android 独有时，才使用各自平台独有方法。当然这一切都很理想，要想真正实现一套简洁好用的跨平台框架，现在才刚刚开始。下面我们介绍 KoolTest 几个实现哲学。</p>
+<h1 id="BDD-or-关键词"><a href="#BDD-or-关键词" class="headerlink" title="BDD or 关键词"></a>BDD or 关键词</h1><p>上述我们论证了跨平台的可能性，这节我们来讨论下脚本样式的选型问题。目前除了直接用代码描述的测试用例外，有两种测试用例表现形式，一种是 BDD 方式，一种是关键字方式。BDD 起源于 TDD，主要理念在于打破需求方和技术方对某项业务理解的偏差。目前最流行的 BDD 框架叫做 <a href="https://docs.cucumber.io/" target="_blank" rel="noopener">Cucumber</a>。比如下面是一个 Cucumber 的测试用例，可以看出这个用例是用直白的自然语言实现的，需求方和开发者都很容易理解这是做什么的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># Comment</span><br><span class="line">@tag</span><br><span class="line">Feature: Eating too many cucumbers may not be good for you</span><br><span class="line"></span><br><span class="line">  Eating too much of anything may not be good for you.</span><br><span class="line"></span><br><span class="line">  Scenario: Eating a few is no problem</span><br><span class="line">    Given Alice is hungry </span><br><span class="line">    When she eats 3 cucumbers</span><br><span class="line">    Then she will be full</span><br></pre></td></tr></table></figure>
+<p>目前挺多测试框架采用或者支持这种测试形式的，比如<a href="https://calaba.sh/" target="_blank" rel="noopener">Calabash</a>。</p>
+<p>另外一种是关键字方式，RobotFramework 算是大家比较常见的一个自动化测试框架，它支持关键字形式的测试用例。以下是 RF 一个测试用例：</p>
+<p><img src="https://user-images.githubusercontent.com/4279515/47981721-f23e7400-e107-11e8-885a-bac9ce040e46.png" alt=""></p>
+<p>对比以上两种方式，感觉各有优缺点。BDD 确实非常容易理解，但也过于理想化，如果要很好的践行这个理念，我们为此要开发一套很复杂的语意理解系统。加之我们的母语又不是英语，虽然 Cucumber 支持中文，但中文的歧义性也较大，如果完全采用这套 BDD 语言规则会导致脚本的编写混乱不堪，让测试人员无从下手编写脚本。</p>
+<p>反观关键字方式，语意功能很明确，容易形成规范的文档。但 RobotFramework 采用的关键词方式导致学习成本较高，且不够灵活，比如你想在某个关键词中间插入一个变量就不行了。经过我们的调研和摸索，我们发现 Cucumber 可以把 Given、When、Then 模式统一使用 <code>*</code> 来代替，并且 Cucumber 可以使用正则匹配的方式来定义命令，所以我们想是不是可以结合以上两者的优点，开发一套适合国人的测试脚本呢，然后我们基于 Cucumber 作为框架实现了一套更灵活的<strong>类关键字</strong>的脚本规则。下面我们举个 KoolTest 中脚本的例子。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Feature: 我的设计</span><br><span class="line">  Scenario: 入口强制登录</span><br><span class="line">    * open &quot;https://www.kujiale.com&quot;</span><br><span class="line">    * tap &quot;我的设计&quot;</span><br><span class="line">    * input &quot;test@test.com&quot; to &quot;手机号/邮箱&quot;</span><br><span class="line">    * input &quot;123456&quot; to &quot;密码&quot;</span><br><span class="line">    * tap &quot;登录&quot;</span><br><span class="line">    * assert_title_exists &quot;我的方案-个人中心-酷家乐&quot;</span><br><span class="line">    * window close</span><br></pre></td></tr></table></figure>
+<p>可以看出这样做，以上脚本形式既有关键字脚本的优雅和精确，又具备 BDD 语言的灵活。而且这样做后，只要稍加说明文档，相信不管产品和开发都能读懂。</p>
+<h1 id="动态-XPATH"><a href="#动态-XPATH" class="headerlink" title="动态 XPATH"></a>动态 XPATH</h1><p>脚本形式确定后，我们就来讨论下，UI 自动化测试中最核心也是最头疼的部分—元素定位。我们知道在 UI 自动化测试中，使用 XPath 定位元素是最准确的一种方式，但它同时也是最脆弱的。因为一旦前端页面稍有变动，就可能导致大量脚本执行失败，而前端变动又是非常频繁的，所以在 UI 自动化测试中使用 XPath 定位是一种饮鸩止渴的办法，除非你能拍板说这页面永远不改了，或者你的测试人员富足到能随时应变开发代码的变更。</p>
+<p>既然 XPath 进行元素定位是一种饮鸩止渴的方法，那我们是不是需要完全弃用这种定位方式呢？答案是否定的，针对 XPath 的缺点，我们在分析了不同客户端的布局 XML 文件和 XPath 规则后，想到动态生成 XPath 的方案。动态 XPath，也即可以根据不同平台的 XML 动态提取元素的 XPath，然后根据提取的 XPath 获取元素进行操作，这样不但能解决 XPath 易变的问题，还能绕开很多 Appium 的坑，比如 Appium 在 1.5 版本后取消了对文本查找的支持等。下面我会详细说下这种方案的实现。</p>
+<p>XPath 本质是一门在 XML 文档中查找信息的语言，而因为不管 Web、Android、iOS 的界面布局都可以用 XML 进行描述，所以我们可以使用 XPath 定位到某个元素。我们可以通过 WebDriver 协议中 getPageSource 的方法获得整个页面的 XML，经过分析我们提取了其中的共性，然后根据不同平台特性组装出对应的 XPath 文件。</p>
+<p>比如一个 Android 的 XPath 文件如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.RelativeLayout</span><br></pre></td></tr></table></figure>
+<p>iOS 的 XPath</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//XCUIElementTypeApplication[@name=&quot;酷家乐设计师&quot;]/XCUIElementTypeWindow[2]/XCUIElementTypeOther/XCUIElementTypeOther</span><br></pre></td></tr></table></figure>
+<p>Web 的 XPath 如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//div[@id=&apos;app&apos;]/div/div[2]/ul</span><br></pre></td></tr></table></figure>
+<p>这边我们举个例子，比如我们要点击一个 “我的” 按钮。</p>
+<p><img src="https://user-images.githubusercontent.com/4279515/48192404-a77c6080-e382-11e8-8826-9ae4fa725f16.png" alt="wechatworkscreenshot_4ab90106-a028-47fd-96a9-8000f8646e74"></p>
+<p>我们会先读取整个页面的 XML ，然后正则匹配出该文本的元素信息，根据 Android、iOS、Web 规则的不同组装成各自的 XPath，再根据 XPath 找到对应元素产生点击行为，这样我们就可以直接使用 <code>* tap &quot;我的&quot;</code>，做到三个平台行为统一。</p>
+<p>分析 XPath 的好处远不止这些，比如我们发现在 Android、iOS 上直接对文字元素产生点击有时会无效，因为这个文字的 clickable 可能为 false，但 icon 加 文字的整块区域是可以点击的，比如上面的那个例子。在我们分析了 Android 和 iOS 的 XML 文件后，发现了它们的元素中有个共性的 bounds 信息。比如如下的 Android 的一条元素的 XML 信息。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">android.widget.TextView</span> <span class="attr">index</span>=<span class="string">"1"</span> <span class="attr">text</span>=<span class="string">"灵感库"</span> <span class="attr">class</span>=<span class="string">"android.widget.TextView"</span> <span class="attr">package</span>=<span class="string">"com.qunhe.designer"</span> <span class="attr">content-desc</span>=<span class="string">""</span> <span class="attr">checkable</span>=<span class="string">"false"</span> <span class="attr">checked</span>=<span class="string">"false"</span> <span class="attr">clickable</span>=<span class="string">"false"</span> <span class="attr">enabled</span>=<span class="string">"true"</span> <span class="attr">focusable</span>=<span class="string">"false"</span> <span class="attr">focused</span>=<span class="string">"false"</span> <span class="attr">scrollable</span>=<span class="string">"false"</span> <span class="attr">long-clickable</span>=<span class="string">"false"</span> <span class="attr">password</span>=<span class="string">"false"</span> <span class="attr">selected</span>=<span class="string">"false"</span> <span class="attr">bounds</span>=<span class="string">"[334,1245][385,1270]"</span> <span class="attr">resource-id</span>=<span class="string">"com.qunhe.designer:id/a45"</span> <span class="attr">instance</span>=<span class="string">"12"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p>所以我们在同样的脚本针对 iOS 和 Android 测试时，会去获得 “我的” 这个元素的位置信息，然后在区域的中间位置进行点击，这样就使得这个脚本更加健壮。</p>
+<p>这边我们再举一个例子。比如我们要测登录，要输入账号密码然后点击登录，大家可以想想如果用其他的一些测试框架要怎么实现这个测试用例。</p>
+<p><img src="https://user-images.githubusercontent.com/4279515/47905264-a3070200-dec1-11e8-93e2-29f18187e916.png" alt=""></p>
+<p>而使用 KoolTest，我们只需把脚本写成如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">* input &quot;xxx@test.com&quot; to &quot;手机号/邮箱&quot;</span><br><span class="line">* input &quot;123456&quot; to &quot;密码&quot;</span><br><span class="line">* tap &quot;登录&quot;</span><br></pre></td></tr></table></figure>
+<p>并且以上脚本也足够的健壮，不管 Web、Android、iOS，只要他们页面的框中的提示信息也是这样的，那就可以通用。这一点是目前主流的一些测试平台做不到的。</p>
+<p>动态 XPath 相对你直接用 XPath 当然性能上会差一点，毕竟多了一步读取 pageSource 过程，但它带来的好处是远远大于缺点的。下面我们再介绍一个更加通用和直观的元素定位方式。</p>
+<h1 id="图像识别"><a href="#图像识别" class="headerlink" title="图像识别"></a>图像识别</h1><p>你要问我 UI 测试自动化的终极方向是什么？那我一定会说，做个直接能读懂需求文档，并且可以自己进行 UI 测试，输出测试报告的机器人。这个机器人可以完全模拟一个测试人员的行为，不一样的就是它执行速度更快、精确度更高。当然这种高科技我们现在还达不到，但理想总归是要有的，万一实现了呢。为了向着这个终极目标出发，以目前技术水平，我们可以实现一个简单的机器人的视觉部分。UI 测试归根到底还是视觉上的测试，所以图像识别在 UI 自动化测试中自然是一种最直观的元素定位方式。目前我们团队使用 OpenCV 提供的模板匹配库，自己实现了一个图像查找库 TMatch。</p>
+<p><img src="https://user-images.githubusercontent.com/4279515/48193378-4d30cf00-e385-11e8-8817-570b5ab26b3a.png" alt=""></p>
+<p>如上图，我们使用 tfind 命令，可以从一个图中找到它的某一部分，并返回位置信息。当然由于不同手机的分辨率不同，所以当我们截取到不同手机上的图片进行匹配时，我们需要对图片进行些处理后再匹配。图像查找原理就不多介绍，网易开源了一个图片识别库 <a href="https://github.com/AirtestProject/Airtest" target="_blank" rel="noopener">Airtest</a>，里面所用到的原理也是模板匹配，如果有兴趣可参考。</p>
+<p>图片识别可以很好的帮我们解决测试依赖开发的问题，但也有缺点，由于图像识别需要进行截图，然后再分析返回坐标信息，所以相对于原生的元素获取方式，会耗费更多的时间。所以如何更快，更精确的定位图像位置，是我们自动化测试脚本执行上的一个性能瓶颈。</p>
+<p>除了上述说的的图像查找外，我们针对某些测试场景，还需要使用另一种图像识别技术 — OCR。比如校验 Android 上的 Toast 消息，因为 Toast 不属于应用内的界面，所以没法通过 Appium 直接获得这个元素，又由于 Toast 上的内容并不是固定的，导致也无法通过图片查找的方式去校验。对此我们引入了 OCR 的解决方案，使用了开源的 <a href="https://github.com/tesseract-ocr/tesseract" target="_blank" rel="noopener">tesseract</a> 。原理和图像查找一样，只是 OCR 的话，直接会把图片上面的文字信息提取出来，然后校验相关内容是否存在。当然使用 OCR 方法，我们只能进行存在性校验，无法对元素进行操作。</p>
+<h1 id="元素定位"><a href="#元素定位" class="headerlink" title="元素定位"></a>元素定位</h1><p>因为元素定位的多样性。KoolTest 在元素定位上也做了优化，最常用的就是<strong>文本定位</strong>，并且支持多语言。如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 可以用 | 来兼容多语言的情况</span><br><span class="line">* tap &quot;登录|Login&quot;</span><br></pre></td></tr></table></figure>
+<p><strong>位置定位</strong>，由于在 Appium 中 iOS 采用逻辑像素，Android 采用物理像素的方式，并且不同手机屏幕分辨率也有差别，我们采用相对的位置定位，比如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 点击屏幕中间位置</span><br><span class="line">* tap 0.5 0.5</span><br></pre></td></tr></table></figure>
+<p>另外针对一些特殊的定位方式，我们采用加 Scheme 的方式来进行区分。目前支持 <code>image://</code>、<code>ocr://</code>、<code>element://</code>， 使用方法如下例子。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">* tap &quot;image://login.png&quot;</span><br><span class="line">* assert_exists &quot;ocr://登录成功&quot;</span><br><span class="line">* tap &quot;element://login&quot;</span><br></pre></td></tr></table></figure>
+<p><code>image://</code> 后面跟上图片的相对路径，KoolTest 会截图后，然后进行图片查找，找到后则会返回位置信息，然后在矩形框中间产生一个点击行为。<br><code>ocr://</code> 后面跟上普通文本内容，加入 ocr:// 方法后，KoolTest 则会采用截图然后分析图片上的文本方式进行判断，而不同于普通文本方式。<br><code>element://</code> 的定位方式是属于一个兜底行为，我们会用一个 csv 文件保存元素的一些定位信息。你可以在其中使用任何一种 Appium 支持的定位方式。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&quot;name&quot;,&quot;xpath_ios&quot;,&quot;xpath_android&quot;,&quot;classname_ios&quot;,&quot;classname_android&quot;,&quot;id_ios&quot;,&quot;id_android&quot;</span><br><span class="line">&quot;login&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;com.tencent.mm:id/c5q&quot;</span><br></pre></td></tr></table></figure>
+<h1 id="写在后面"><a href="#写在后面" class="headerlink" title="写在后面"></a>写在后面</h1><p>Appium 算是一个被大家使用最多的轮子，但它的坑实在太多。所以我们发起了 KoolTest 项目，想要在 Appium 的基础上再封装一层，通过各种技巧来尽可能的踏平这些坑，并且也能踏平不同端的差异，为大家营造一个统一、简洁的 UI自动化测试环境。以上介绍了 KoolTest 的一些核心理念，当然在实际实现过程中需要解决的问题远不止上面这些，目前 KoolTest 不但可以在本地运行，也可以结合 Jenkins 部署云端，远端触发执行，并生成测试报告。后续我们有打算开源 KoolTest 解决方案，和大家一起探索面向未来的 UI 自动化解决方案。</p>
+<blockquote>
+<p>作者简介</p>
+<p>冬青，酷家乐资深前端开发工程师，热爱新技术并愿意尝试，致力于让天下没有难懂的技术。我们团队长期招聘 Android、iOS、FE 等技术方向工程师，欢迎投简历至：dongqing#qunhemail.com。</p>
+</blockquote>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h3>评论，需翻墙</h3>
+<script src="https://utteranc.es/client.js" repo="Kujiale-Mobile/Blog" issue-term="title" theme="github-light" crossorigin="anonymous" async>
+</script>
+            </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/Kujiale-Mobile" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2018 酷家乐移动前端团队<br></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'kujiale-mobile';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+</body>
+
+</html>

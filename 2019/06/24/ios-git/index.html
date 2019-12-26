@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.8.0">
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="背景：随着项目业务模块越来越多，代码越来越复杂，很多公司都会对项目进行拆解，将各个业务模块、基础模块、中间层、UI组件、功能插件等拆分到独立的 repo 中。根据拆分粒度以及项目复杂度的不同，会多出来少则十几个，多则上百个 repo 出来。无论多出来多少个子 repo ，如何管理这些子 repo 的">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="酷家乐移动前端团队">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="iOS模块化：子模块版本管理实践">
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="背景：随着项目业务模块越来越多，代码越来越复杂，很多公司都会对项目进行拆解，将各个业务模块、基础模块、中间层、UI组件、功能插件等拆分到独立的 repo 中。根据拆分粒度以及项目复杂度的不同，会多出来少则十几个，多则上百个 repo 出来。无论多出来多少个子 repo ，如何管理这些子 repo 的">
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="移动前端团队博客">
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article">
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://yoursite.comhttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg">
+    
+
+        <meta name="twitter:card" content="summary_large_image">
+
+    
+
+    
+        <meta name="twitter:image" content="http://yoursite.comhttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg">
+    
+
+    <!-- Title -->
+    
+    <title>iOS模块化：子模块版本管理实践 - 移动前端团队博客</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+    <link rel="icon" href="https://avatars0.githubusercontent.com/u/40188012?s=200&v=4">
+    
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">酷家乐</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                首页
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                文章目录
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/about">
+                            
+                                关于我们
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/Kujiale-Mobile">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+
+<header>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading" style="margin-top: 10rem">
+                    <h1>
+                        iOS模块化：子模块版本管理实践
+                    </h1>
+
+                    <span style="color: #9EABB3; font-size: 1.5rem;">
+                        <!-- Date and Author -->
+                        
+                        波波
+                         | 
+                        
+                        2019-06-24
+                        
+                    </span>
+                    <span style="color: #9EABB3; font-size: 1.5rem;"> | 浏览量：<span id="busuanzi_value_page_pv"></span>次</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+            
+            <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                
+                
+
+
+<a href="/tags/iOS/">#iOS</a> <a href="/tags/模块化，git/">#模块化，git</a>
+
+
+                
+            </div>
+            <div class="col-lg-4 col-md-5 post-categories">
+                
+                
+
+<a href="/categories/iOS/">iOS</a>
+
+                
+            </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <blockquote>
+<p>背景：随着项目业务模块越来越多，代码越来越复杂，很多公司都会对项目进行拆解，将各个业务模块、基础模块、中间层、UI组件、功能插件等拆分到独立的 repo 中。根据拆分粒度以及项目复杂度的不同，会多出来少则十几个，多则上百个 repo 出来。<br>无论多出来多少个子 repo ，如何管理这些子 repo 的版本，就会是一个避不开的问题。</p>
+</blockquote>
+<h1 id="子模块版本管理"><a href="#子模块版本管理" class="headerlink" title="子模块版本管理"></a>子模块版本管理</h1><p>拆分出来的子 repo ，我们统称它为子模块，集成这些子项目的 repo，我们称为主项目。</p>
+<p>在 iOS 项目中，子模块的版本管理，每个公司可能都有自己的做法，以下介绍的是我司在 Coohom 项目组的子模块版本管理实践。</p>
+<h2 id="版本号"><a href="#版本号" class="headerlink" title="版本号"></a>版本号</h2><p>参考 <a href="https://semver.org/" target="_blank" rel="noopener">Semantic Versioning 2.0.0</a>，对应 git flow 中的各个开发阶段，我们为子模块制定了版本号生成规则。</p>
+<ul>
+<li>develop branch 的子模块版本号：<code>a.b.c.alpha-d-hash</code></li>
+<li>release branch 的子模块版本号：<code>a.b.c.beta-d-hash</code></li>
+<li>master branch 的子模块版本号：<code>a.b.c</code></li>
+</ul>
+<blockquote>
+<p>a, b, c 分别对应 major, minor, patch，-d-hash 为 git describe 命令所获取的字符串</p>
+</blockquote>
+<p>这样子的版本号设计，除了可以在主项目中清晰的跟踪子模块的版本升级，还能知道当前依赖的子模块版本是处于什么阶段。</p>
+<p>为了方便将子模块的版本更新部署自动化，我们还为子模块版本号更新制定了版本号自增规则（这种细节本文不介绍，逻辑可以直接看文末的脚本demo）。</p>
+<h2 id="Dev-模式"><a href="#Dev-模式" class="headerlink" title="Dev 模式"></a>Dev 模式</h2><p>我们使用 <code>cocoapods</code> 来集成子模块，如果子模块只能通过版本号来集成的话，当需要修改子模块的时候，主项目就需要更新子模块来验证修改后的代码，这样会带来频繁的子模块版本更新，并在升级版本中浪费大量时间。于是我们为子模块设计了 Dev 模式。</p>
+<p>在 Dev模式下，子模块代码会通过 <code>Development Pods</code> 的方式集成进项目，这种方式集成子模块，可以直接修改子模块代码，不需要走子模块版本更新的流程，就可以在主项目中验证修改后的代码。</p>
+<p>为了在 Dev 模式和版本集成中方便切换，以及为了给后续 CI 开发服务，我们外层封装了一下 <code>cocoapods</code> 的 <code>pod(name = nil, *requirements)</code> 方法，创建了我们自己的  <code>submodule(name, version, mode, params)</code> 方法（具体的方法实现可以看文末的demo）。</p>
+<p>以下是 submodule 方法在 Podfile 中的使用方式：<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">  require_relative <span class="string">'./PodScripts/submodule.rb'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Dev, Alpha, Beta, Release</span></span><br><span class="line">  submodule <span class="string">'MobileiOSBase'</span>, <span class="string">'~&gt; 0.6.0'</span>, CooHom::Mode::Release, <span class="symbol">:subspecs</span> =&gt; [</span><br><span class="line">    <span class="string">'Base'</span>,</span><br><span class="line">    <span class="string">'ServiceBase'</span>,</span><br><span class="line">    <span class="string">'ViewBase'</span>,</span><br><span class="line">    <span class="string">'CHAnalytics'</span>,</span><br><span class="line">    <span class="string">'AccountService'</span></span><br><span class="line">  ]</span><br></pre></td></tr></table></figure></p>
+<p><code>CooHom::Mode</code> 有4个值：<code>Dev, Alpha, Beta, Release</code>，分别对应子模块的 Dev 模式，alpha 版本，beta 版本，release 版本。</p>
+<h2 id="子模块在主项目-git-flow-的各个阶段中的状态"><a href="#子模块在主项目-git-flow-的各个阶段中的状态" class="headerlink" title="子模块在主项目 git flow 的各个阶段中的状态"></a>子模块在主项目 git flow 的各个阶段中的状态</h2><p><img src="https://user-images.githubusercontent.com/4279515/60317132-44d2e600-99a0-11e9-96f8-a6ee5ac38b72.png" alt="子模块在主项目 git flow 的各个阶段中的状态"></p>
+<h3 id="原则"><a href="#原则" class="headerlink" title="原则"></a>原则</h3><ol>
+<li>Dev 模式集成的子模块不允许合入 develop，只允许在本地 feature 开发中使用。</li>
+<li>release 不允许存在 alpha 版本的子模块，所以在开出 release 分支之前，都必须要确定所有 alpha 版本的子模块进入 beta 版本。</li>
+<li>上传 app store 的 ipa，所有依赖的子模块都必须是 release 版本。</li>
+</ol>
+<h2 id="相关脚本设计"><a href="#相关脚本设计" class="headerlink" title="相关脚本设计"></a>相关脚本设计</h2><blockquote>
+<p>人为去保证上述开发流程的运行，浪费人力不说，还很容易出错，所以相关的CI脚本设计，git hook 设计是必不可少的。</p>
+</blockquote>
+<h3 id="git-hooks"><a href="#git-hooks" class="headerlink" title="git hooks"></a>git hooks</h3><ol>
+<li>主项目 feature branch push 的时候，需要检查是否有处于Dev模式的子模块，如果有，push失败。</li>
+<li>主项目创建并 push release branch 的时候，需要检查是否有 alpha 版本的子模块，如果有，branch 创建失败。</li>
+</ol>
+<h3 id="CI-CD"><a href="#CI-CD" class="headerlink" title="CI / CD"></a>CI / CD</h3><h4 id="主项目CI-CD"><a href="#主项目CI-CD" class="headerlink" title="主项目CI / CD"></a>主项目CI / CD</h4><ol>
+<li>feature branch 的 merge request 触发，需要检查是否有处于 Dev 模式的子模块，如果有，无法 merge。</li>
+<li>在 develop 生成 dev 的 ipa 时触发，先检查是否有处于 Dev 模式的子模块，如果有，无法生成 ipa。</li>
+<li>在 release 生成 beta 的 ipa 时触发，先检查是否有处于 Dev 模式或者 alpha 版本的子模块，如果有，无法生成 ipa。</li>
+<li>上传 testflight 的时候触发，先检查是否有非 release 版本的子模块，如果有，无法生成 ipa。</li>
+</ol>
+<h4 id="子模块CI-CD"><a href="#子模块CI-CD" class="headerlink" title="子模块CI / CD"></a>子模块CI / CD</h4><ol>
+<li>feature branch 的 merge request 触发，pod lib lint ，如果失败，不能 merge ，需要确保 develop 上的代码能够正常发布版本。</li>
+<li>develop 每一次 commit 触发，为这次 commit 打上 alpha 版本的 tag。</li>
+<li>release 每一次 commit 触发，为这次 commit 打上 beta 版本的 tag。</li>
+<li>release 每一次 commit 触发，为这次 commit 打上 release 版本的 tag。</li>
+<li>打 tag 触发，根据 tag ，修改 podspec 文件版本并发布 podspec。</li>
+</ol>
+<p><strong><em><a href="https://github.com/huangqiaobo/scripts-demo-for-submodules" target="_blank" rel="noopener">脚本Demo</a></em></strong></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h3>评论，需翻墙</h3>
+<script src="https://utteranc.es/client.js" repo="Kujiale-Mobile/Blog" issue-term="title" theme="github-light" crossorigin="anonymous" async>
+</script>
+            </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/Kujiale-Mobile" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2019 酷家乐移动前端团队<br></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'kujiale-mobile';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+</body>
+
+</html>

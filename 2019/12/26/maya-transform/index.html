@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.8.0">
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="简介&amp;emsp;&amp;emsp;本篇blog主要是探索批量制作带有Transform动画的usdz文件。Transform动画部分使用Maya软件进行调研生成的。
+主要技术流程
+模型及材质准备
+动画制作
+usdz制作1.模型及材质准备&amp;emsp;&amp;emsp;首先建模。这里注意模型及材质命名要规范，不然在">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="酷家乐移动前端团队">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="基于Maya批量制作带有Transform动画的usdz技术探索">
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="简介&amp;emsp;&amp;emsp;本篇blog主要是探索批量制作带有Transform动画的usdz文件。Transform动画部分使用Maya软件进行调研生成的。
+主要技术流程
+模型及材质准备
+动画制作
+usdz制作1.模型及材质准备&amp;emsp;&amp;emsp;首先建模。这里注意模型及材质命名要规范，不然在">
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="移动前端团队博客">
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article">
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://yoursite.comhttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg">
+    
+
+        <meta name="twitter:card" content="summary_large_image">
+
+    
+
+    
+        <meta name="twitter:image" content="http://yoursite.comhttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg">
+    
+
+    <!-- Title -->
+    
+    <title>基于Maya批量制作带有Transform动画的usdz技术探索 - 移动前端团队博客</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+    <link rel="icon" href="https://avatars0.githubusercontent.com/u/40188012?s=200&v=4">
+    
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">酷家乐</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                首页
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                文章目录
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/about">
+                            
+                                关于我们
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/Kujiale-Mobile">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+
+<header>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading" style="margin-top: 10rem">
+                    <h1>
+                        基于Maya批量制作带有Transform动画的usdz技术探索
+                    </h1>
+
+                    <span style="color: #9EABB3; font-size: 1.5rem;">
+                        <!-- Date and Author -->
+                        
+                        西狂
+                         | 
+                        
+                        2019-12-26
+                        
+                    </span>
+                    <span style="color: #9EABB3; font-size: 1.5rem;"> | 浏览量：<span id="busuanzi_value_page_pv"></span>次</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+            
+            <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                
+                
+
+
+<a href="/tags/Maya/">#Maya</a> <a href="/tags/Transform/">#Transform</a>
+
+
+                
+            </div>
+            <div class="col-lg-4 col-md-5 post-categories">
+                
+                
+
+<a href="/categories/Maya/">Maya</a>
+
+                
+            </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>&emsp;&emsp;本篇blog主要是探索批量制作带有Transform动画的usdz文件。Transform动画部分使用Maya软件进行调研生成的。</p>
+<h2 id="主要技术流程"><a href="#主要技术流程" class="headerlink" title="主要技术流程"></a>主要技术流程</h2><ol>
+<li>模型及材质准备</li>
+<li>动画制作</li>
+<li>usdz制作<h4 id="1-模型及材质准备"><a href="#1-模型及材质准备" class="headerlink" title="1.模型及材质准备"></a>1.模型及材质准备</h4>&emsp;&emsp;首先建模。这里注意模型及材质命名要规范，不然在制作动画时，导入三维动画软件时，名称会被改，如“：”，很多时候会被“-”代替。<br>&emsp;&emsp;然后制作pbr材质，因为usdz是实时渲染，不能够使用离线渲染材质。图片尺寸不能超过2048，且所有图片都要是2^N^次方。在测试usdz生成时，使用数值如color，无法正常显示，但是用color_map能正常显示。因此各个通道的材质都一图片形式表示。通道包括 color_map normal_map roughness_map metallic_map emissive_map ,但材质未用到相应的通道，可以不用生成。<br><img src="https://img-blog.csdnimg.cn/20191220012617688.png" alt="kujiale"><br>&emsp;&emsp;最后制作mtl文件，该文件主要是用于描述模型及材质对应关系的，为usdz生成时，材质贴图能够对应到模型，并打包进usdz。可以是如下形式：<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">newmtl sofa_leg</span><br><span class="line">	map_Kd sofa_leg_color.jpg</span><br><span class="line">	map_Roughness sofa_leg_roughness.png</span><br><span class="line">	map_Metallic sofa_leg_metallic.png</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="2-动画制作"><a href="#2-动画制作" class="headerlink" title="2.动画制作"></a>2.动画制作</h4><p>&emsp;&emsp;主要是以旋转为例，进行脚本编写。输入是模型.obj文件，输出为.abc文件。执行过程中，不用导入材质。而obj导入进三维动画软件中，材质丢失或用默认材质，总之材质是有问题的，但是导出的abc文件，group 名称是没有变的，因此在生成usdz时，用group名称，来对应材质。<br>&emsp;&emsp;下面是Maya动画中Python脚本文件：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">#maya_anim.py</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> maya.standalone</span><br><span class="line"><span class="keyword">import</span> maya.cmds as cmds</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"># selectionList:选择要做动画的物体</span><br><span class="line"># Axis：坐标轴，如 'rotateY',具体参考Maya官方文档</span><br><span class="line"># startTime：动画开始时间</span><br><span class="line"># endTime:动画结束时间</span><br><span class="line"># startValue：起始数值，如旋转从<span class="number">0</span>°开始</span><br><span class="line"># endValue：结束数值，如旋转到<span class="number">180</span>°。</span><br><span class="line">def Anim_SingleTransform(selectionList, Axis, startTime, endTime, startValue, endValue):</span><br><span class="line">    if len(selectionList) &gt;= 1:</span><br><span class="line">        <span class="keyword">for</span> objectName in selectionList:</span><br><span class="line">            cmds.cutKey(objectName, time=(startTime, endTime), attribute=Axis)</span><br><span class="line">            cmds.setKeyframe(objectName, time=startTime, attribute=Axis, value=startValue)</span><br><span class="line">            cmds.setKeyframe(objectName, time=endTime, attribute=Axis, value=endValue)</span><br><span class="line">            cmds.selectKey(objectName, time=(startTime, endTime), attribute=Axis, keyframe=True)</span><br><span class="line">            cmds.keyTangent(inTangentType='linear', outTangentType='linear')</span><br><span class="line"></span><br><span class="line">#objPath: 需要输入obj文件的路径</span><br><span class="line">#ABCPath：输出abc动画文件路径</span><br><span class="line">def Process(objPath, abcPath):</span><br><span class="line">    <span class="keyword">if</span> os.path.exists(objPath):</span><br><span class="line">        maya.standalone.initialize()</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            cmds.loadPlugin('AbcExport.mll')</span><br><span class="line">        except RuntimeError:</span><br><span class="line">            print('load plugin faild')</span><br><span class="line">        cmds.playbackOptions(minTime='0sec', maxTime='0.20833333sec')</span><br><span class="line">        cmds.file(objPath, i=True)</span><br><span class="line">        cmds.select(all=True)</span><br><span class="line">        startTime = cmds.playbackOptions(query=True, minTime=True)</span><br><span class="line">        endTime = cmds.playbackOptions(query=True, maxTime=True)</span><br><span class="line">        selectionList = cmds.ls(selection=True, type='transform')</span><br><span class="line">        Anim_SingleTransform(selectionList, 'rotateY', startTime, endTime, 0, 180)</span><br><span class="line">        cmds.AbcExport(j = '-frameRange 1 6 -uvWrite -dataFormat ogawa -file ' + abcPath)</span><br><span class="line">        maya.standalone.uninitialize()</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print('-------------obj file does not exist----------')</span><br><span class="line"># objPath, abcPath 由批量生产abc文件的Python脚本传入（main.py）</span><br><span class="line">objPath = <span class="string">""</span></span><br><span class="line">abcPath = <span class="string">""</span></span><br><span class="line">Process(objPath, abcPath)</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;下面是批量生产abc文件Python脚本文件：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># main.py</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> subprocess</span><br><span class="line"></span><br><span class="line">cwd = os.path.dirname(__file__)</span><br><span class="line">mayaLocation = r'.\your maya installed location\Autodesk\Maya2017\bin'</span><br><span class="line">mayapyPath = mayaLocation + r'\mayapy.exe'</span><br><span class="line">mayaPath = mayaLocation + r'\maya.exe'</span><br><span class="line">mayaScript = os.path.join(cwd, 'maya_anim.py')</span><br><span class="line"></span><br><span class="line">def abc():</span><br><span class="line">    cmd = <span class="string">"\""</span> + mayapyPath + <span class="string">"\""</span> + <span class="string">" "</span> + <span class="string">"\""</span> + mayaScript + <span class="string">"\""</span></span><br><span class="line">    sub = subprocess.Popen(cmd, shell= True)</span><br><span class="line">    sub.wait()</span><br><span class="line"></span><br><span class="line"># 修改maya_anim.py中文件输入和输出路径，当然也可以用commandline方式。</span><br><span class="line">def changeScriptValue(inPath, outPath):</span><br><span class="line">    inPath = '\"' + inPath.replace('\\','/') + '\"\n'</span><br><span class="line">    outPath = '\"' + outPath.replace('\\', '/') + '\"\n'</span><br><span class="line">    file_data = <span class="string">""</span></span><br><span class="line">    with open(mayaScript, <span class="string">'r'</span>) as f1:</span><br><span class="line">        <span class="keyword">for</span> line in f1:</span><br><span class="line">            if line.startswith('objPath = '):</span><br><span class="line">                line = 'objPath = ' + inPath</span><br><span class="line">            if line.startswith('abcPath = '):</span><br><span class="line">                line = 'abcPath = ' + outPath</span><br><span class="line">            file_data += line</span><br><span class="line">    with open(mayaScript, <span class="string">'w'</span>) as f2:</span><br><span class="line">        f2.write(file_data)</span><br><span class="line"></span><br><span class="line">if __name__ == '__main__':</span><br><span class="line">    # 可以循环设置参数，进行批量生产</span><br><span class="line">    abcInpath = <span class="string">''</span></span><br><span class="line">    abcOutPath = ''</span><br><span class="line">    changeScriptValue(abcInpath,abcOutPath)</span><br><span class="line">    abc()</span><br></pre></td></tr></table></figure>
+<h4 id="3-usdz制作"><a href="#3-usdz制作" class="headerlink" title="3.usdz制作"></a>3.usdz制作</h4><p>&emsp;&emsp;根据abc文件和材质贴图，以及对应关系描述文件mtl，进行usdz文件生成。<br>&emsp;&emsp;转换脚本如下：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">#abc2usdz.py</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> subprocess</span><br><span class="line"></span><br><span class="line">#获得模型group名称与材质对应关系，需要从obj文件中获得。</span><br><span class="line">def get_mesh_mat(assertPath):</span><br><span class="line">    dic_mesh_mat = &#123;&#125;</span><br><span class="line">    f = open(assertPath)</span><br><span class="line">    lines = f.readlines()</span><br><span class="line">    f.close()</span><br><span class="line">    g = <span class="string">''</span></span><br><span class="line">    for line in lines:</span><br><span class="line">        line = line.strip('\r\n')</span><br><span class="line">        if line.startswith('g '):</span><br><span class="line">            g = line.split(<span class="string">' '</span>)[<span class="number">1</span>]</span><br><span class="line">        if line.startswith('usemtl '):</span><br><span class="line">            m = line.split(<span class="string">' '</span>)[<span class="number">1</span>]</span><br><span class="line">            if g != '' and m != '':</span><br><span class="line">                dic_mesh_mat[m] = g</span><br><span class="line">    <span class="keyword">return</span> dic_mesh_mat</span><br><span class="line"></span><br><span class="line"># inputPath：文件输入路径，该路径下需要包含obj文件，abc文件，mtl文件，材质贴图。</span><br><span class="line"># outputPath：usdz存储位置。</span><br><span class="line">def generate_usdz(inputPath,outputPath):</span><br><span class="line">    <span class="keyword">if</span> os.path.exists(inputPath + <span class="string">"models_baked.mtl"</span>):</span><br><span class="line">        fmtl = open(inputPath + <span class="string">"models_baked.mtl"</span>)</span><br><span class="line">        cmd = 'xcrun usdz_converter ' + inputPath + 'models_baked.abc ' + outputPath + 'models_baked.usdz'</span><br><span class="line">        assertPath = os.path.join(inputPath, 'models_baked.obj')</span><br><span class="line">        dic_mat_mesh = get_mesh_mat(assertPath)</span><br><span class="line">        <span class="keyword">for</span> line in fmtl:</span><br><span class="line">            <span class="keyword">if</span> len(line) &gt; <span class="number">2</span> :</span><br><span class="line">                <span class="keyword">if</span>(len(line.split(<span class="string">' '</span>)) == <span class="number">2</span>):</span><br><span class="line">                    v0, v1 = line.split(<span class="string">' '</span>)</span><br><span class="line">                    if v0 == 'newmtl' :</span><br><span class="line">                        cmd += ' -g ' + dic_mat_mesh[v1[0 : len(v1)-1]]</span><br><span class="line">                    if v0 == '\tmap_Kd' :</span><br><span class="line">                        cmd += ' -color_map ' + outputPath + v1[0 : len(v1)-1]</span><br><span class="line">                    if v0 == '\tmap_Normal' :</span><br><span class="line">                        cmd += ' -normal_map ' + outputPath + v1[0 : len(v1)-1]</span><br><span class="line">                    if v0 == '\tmap_Roughness' :</span><br><span class="line">                        cmd += ' -roughness_map ' + outputPath + v1[0 : len(v1)-1]</span><br><span class="line">                    if v0 == '\tmap_Metallic' :</span><br><span class="line">                        cmd += ' -metallic_map ' + outputPath + v1[0 : len(v1)-1]</span><br><span class="line">                    if v0 == '\tmap_Emissive' :</span><br><span class="line">                        cmd += ' -emissive_map ' + outputPath + v1[0 : len(v1)-1]</span><br><span class="line">            line.strip()</span><br><span class="line">        fmtl.close()</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(<span class="string">"Error: "</span> + subFolder)</span><br><span class="line">    subprocess.call(cmd, shell = True)</span><br><span class="line"></span><br><span class="line"># 该脚本执行需要在macOS上运行，且Xcode支持usdz_conveter功能。</span><br><span class="line">if __name__ == '__main__':</span><br><span class="line">     # 可以循环设置参数，进行批量生产</span><br><span class="line">    inputPath = <span class="string">''</span></span><br><span class="line">    outputPath = ''</span><br><span class="line">    generate_usdz(inputPath,outputPath)</span><br></pre></td></tr></table></figure></p>
+<h2 id="动画展示"><a href="#动画展示" class="headerlink" title="动画展示"></a>动画展示</h2><p><img src="https://img-blog.csdnimg.cn/2019122003054973.gif" alt="kujiale"></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h3>评论，需翻墙</h3>
+<script src="https://utteranc.es/client.js" repo="Kujiale-Mobile/Blog" issue-term="title" theme="github-light" crossorigin="anonymous" async>
+</script>
+            </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/Kujiale-Mobile" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2019 酷家乐移动前端团队<br></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'kujiale-mobile';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+</body>
+
+</html>

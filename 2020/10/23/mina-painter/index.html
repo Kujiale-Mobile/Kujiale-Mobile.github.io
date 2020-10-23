@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.8.0">
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="1.背景小程序侧对canvas生成图片一直有旺盛的需求，而painter的诞生也正是为了简化小程序侧海报生成的流程。在早期的版本中，painter主要服务的是使用静态模板生成海报的需求。所谓静态模板，就是在进入canvas绘制流程后无法再做出修改的模板。在绘制前，我们可以根据具体数据向模板中填充内容">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="酷家乐移动前端团队">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Painter 小程序动态海报编辑解决方案">
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="1.背景小程序侧对canvas生成图片一直有旺盛的需求，而painter的诞生也正是为了简化小程序侧海报生成的流程。在早期的版本中，painter主要服务的是使用静态模板生成海报的需求。所谓静态模板，就是在进入canvas绘制流程后无法再做出修改的模板。在绘制前，我们可以根据具体数据向模板中填充内容">
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="移动前端团队博客">
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article">
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://yoursite.comhttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg">
+    
+
+        <meta name="twitter:card" content="summary_large_image">
+
+    
+
+    
+        <meta name="twitter:image" content="http://yoursite.comhttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg">
+    
+
+    <!-- Title -->
+    
+    <title>Painter 小程序动态海报编辑解决方案 - 移动前端团队博客</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+    <link rel="icon" href="https://avatars0.githubusercontent.com/u/40188012?s=200&v=4">
+    
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">酷家乐</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                首页
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                文章目录
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/about">
+                            
+                                关于我们
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/Kujiale-Mobile">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+
+<header>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading" style="margin-top: 10rem">
+                    <h1>
+                        Painter 小程序动态海报编辑解决方案
+                    </h1>
+
+                    <span style="color: #9EABB3; font-size: 1.5rem;">
+                        <!-- Date and Author -->
+                        
+                        黑岛
+                         | 
+                        
+                        2020-10-23
+                        
+                    </span>
+                    <span style="color: #9EABB3; font-size: 1.5rem;"> | 浏览量：<span id="busuanzi_value_page_pv"></span>次</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+            
+            <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                
+                
+
+
+<a href="/tags/小程序/">#小程序</a> <a href="/tags/canvas/">#canvas</a>
+
+
+                
+            </div>
+            <div class="col-lg-4 col-md-5 post-categories">
+                
+                
+
+<a href="/categories/小程序/">小程序</a>
+
+                
+            </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h2 id="1-背景"><a href="#1-背景" class="headerlink" title="1.背景"></a>1.背景</h2><p>小程序侧对canvas生成图片一直有旺盛的需求，而painter的诞生也正是为了简化小程序侧海报生成的流程。在早期的版本中，painter主要服务的是使用静态模板生成海报的需求。所谓静态模板，就是在进入canvas绘制流程后无法再做出修改的模板。在绘制前，我们可以根据具体数据向模板中填充内容，生成对应的模板，也可以创建多种预设模板，让用户选择最接近自身需求的模板，还可以将模板通过接口获取，使模板的增加、更新、删除可以脱离于小程序迭代。</p>
+<p>上述几种方式都可以在海报绘制前对海报充分的自定义，在大部分场景预设好、海报不需要即时编辑的情况下，已经足够满足我们的大部分海报绘制需求了。但是当海报生成完毕，如果用户还有对海报的其他样式需求，我们就束手无策了。而如果我们需要从用户处即时获取信息或需要用户直接手动操作海报中元素以完善海报信息的时候，交互体验往往会变差，要么不得不为了一些小的修改频繁修改模版的整个结构，大量的时间将会被浪费在重绘并没有作出修改操作的 view，要么就只能等所有修改都做好，然后一次性重绘，用户无法在编辑后马上看到自己的改动造成的影响。</p>
+<p>于是每次产品出去调研，都能带来一大堆复杂、细碎、甚至互相冲突的需求：字号变大一些？字号变小一号？加个删除线？五彩斑斓的黑？图片位置移到某个角落？图片太小不够突出？图片太大喧宾夺主？还要再加一些文字描述项？这导致的最后的结果就是：</p>
+<p>产品：</p>
+<p><img src="https://qhstaticssl.kujiale.com/newt/100082/image/png/1603416441438/F9FFF436CF8133DA59758CA0BAA02DE1.png" alt="威胁"></p>
+<p>研发：</p>
+<p><img src="https://qhstaticssl.kujiale.com/newt/100082/image/png/1603416443528/41FABFA9EE67E1C78C75AC430C661E25.png" alt="你根本不是自己人"></p>
+<p>有什么办法既能满足用户的需求，又能拯救我们濒临破产的（塑料）友谊呢？嗯~似乎，把修改海报的能力交给用户，让用户自己编辑，那是不是这个锅……咳咳，我是说这个自由度是不是就可以交到用户手中了呢？</p>
+<p><img src="https://qhstaticssl.kujiale.com/newt/100082/image/png/1603416439617/8104DDD3696869D904715F1E0B21088C.png" alt="合作愉快"></p>
+<p>所以，伴随着产品和研发共同的期许，painter动态模板解决方案应运而生。</p>
+<h2 id="2-设计"><a href="#2-设计" class="headerlink" title="2.设计"></a>2.设计</h2><p>在上文中，我们说到模板刷新时的局限——模板是一体的，如果有部分需要修改，那整个模板都要重新渲染，这就是交互体验下降的主要原因，我们将这类模板称之为静态模板。那如果只重新绘制需要被更新的 view，而其他的 view 都保持不变，是不是就能最大程度改善这一问题呢？基于上述原因，我们提出了<code>动态模版</code>这一与静态模版相对的概念。动态模版对比静态模版的区别是，我们可以在使用动态模版时，通过向 action 传入单个 view 用以更新模版。在这个过程中，我们只会做必要的重绘操作，而不是每次都把整个模版刷新，从而减少绘制时间，提升交互体验。</p>
+<p>静态模版工作流程：</p>
+<p><img src="https://qhstaticssl.kujiale.com/newt/100082/image/png/1601344029907/240DF8D945CDD858EA9F7EC54BBB8A84.png?x-oss-process=image/resize,w_400" alt="静态模版工作流程"></p>
+<p>动态模版工作流程：</p>
+<p><img src="https://qhstaticssl.kujiale.com/newt/100082/image/png/1601344029904/10D33EEA56A255A8858AED4B4B3CFBDC.png?x-oss-process=image/resize,w_400" alt="动态模版工作流程"></p>
+<p>而动态模板的实现，依赖于painter对模板的分层操作。顾名思义，分层操作就是将模版切割为多个小的模版，分别渲染。这么做的好处就是如果需要对单个 view 进行重绘，painter 只会重绘对应层级的 canvas，绘制在其他层级的内容完全不需要感知到有这次操作。绘制内容的减少，将会大大缩短重绘完成的时间。在决定分层后，我们考虑过几种分层方法：</p>
+<pre><code>1.每个 view 都作为一个单独的层级：这种方式能最大限度的分割模版，后续更新也能确保每次最多重绘一个 view，还能保持层级不变。但问题是这种分割方式会导致 painter 创建的 pen 对象暴增。由于我们无法预估使用者会创建出多么复杂的模版，层级越多，造成的开销越大。除此之外，在小程序上使用如此多的 canvas 也会导致问题。我们尝试过将示例中的模版按照这种方式绘制，在 ios 上表现尚可，但在 android 上会绘制失败。考虑到官方也建议减少 android 上的画布规模防止 crash，这个方案就此废弃。
+
+2.为需要更新的 view 单独做一个操作层：这种方式就是简单粗暴的把需要更新的 view 从模版中切出来，绘制在一个单独的层级上，接下来的修改都只重绘这个操作层。这种方式的 canvas 数量可控，不会造成太大的浪费，同时也能保证更新的最小化。但每次选择新的 view 更新，我们都需要做一遍“把 view 切出来”这个操作，这相比重绘整个模版不见得有优化，除此之外，这个切分操作由于要在两个 canvas 上同时绘制，如果绘制结束的时间不一致，就会导致样式问题，譬如，操作层先绘制好了，背景层还没有，结果页面上刚被切换掉的 view 消失了（这时其实还出现了两个当前需要操作的 view，但是由于重叠问题，不会还是显示一个），又譬如，背景层绘制好了，操作层还没有，画布上当前需要操作的 view 不见了（此时刚被切换的 view 又出现了两个）。最重要的是，这种方式无法在操作时保证 view 的原层级，而我们的目标是在操作时看起来 view 还在它原来应该待的位置，因此我们继续探索新的方案。
+
+3.在方案 2 的基础上拓展，将背景层再拆分成两个层级——top 与 bottom：这种三层式的划分方式每次会将相比更新的 view 原本层级更高的绘制到 top 层，而层级更低的则绘制到 bottom 层。这样在方案 2 的基础上，还能保证操作时原层级不被修改，相对而言是更为合理的做法。而方案 2 中每次切换更新的 view，因绘制时间不可控导致的视觉问题，在这种分层方案中能以调节绘制顺序的方式合理避开：如果新切换的 view 比原本的层级要高，则从 bottom 向上绘制，如果新切换的 view 比原本的层级要低，则从 top 向下绘制。利用绘制完成前的视觉残留，能做到类似无缝切换的效果。
+</code></pre><p>综上所述，painter使用了第三种分层做法。</p>
+<p><img src="https://qhstaticssl.kujiale.com/newt/100082/image/png/1601347762038/D99BAF97F817166C16DD5A01DD519C92.png?x-oss-process=image/resize,w_600" alt="view切换绘制顺序"></p>
+<p>当然，这种分层的问题也很明显——当频繁更新同一个 view 的时候，只有第一次分层的操作会较大，后续操作都会比直接更新 palette 要小的多，但如果频繁更新不同的 view，分层操作反而会比直接刷新整个模版开销更大。因此在使用时，建议根据具体的场景，酌情选用。</p>
+<h2 id="3-使用场景"><a href="#3-使用场景" class="headerlink" title="3.使用场景"></a>3.使用场景</h2><p>我们刚才也说了，动态模版的优势在于频繁对同一 view 进行更新操作时，能减少开销，那么什么情况下容易产生对某一 view 的频繁刷新呢？举几个例子：位置拖动、拖动缩放。painter 预先对拖动、缩放和删除事件做了处理。</p>
+<p>在 painter 中，当你使用了动态模版，除了分层的三层 canvas 之外，还将创建一个 front canvas。这个 canvas 位于整个绘制的最顶层，且绑定了各类手指触碰事件。当用户的触碰事件发生时，front 层将在被选中 view 位置绘制选择框，用以标记选中 view 的位置。同时，选中框上还会有缩放与删除的 icon。当用户的触碰事件被监听到发生在缩放 icon 内，则会进行缩放操作，在删除 icon 内，则会删除该 view，除此之外的位置，如果操作为拖动操作，则会拖动该 view，如果为点击操作，则会点选中对应位置的 view（如没有 view，就取消选中）多个 view 在同一位置重叠时，多次点击还可以切换选中的 view；选中框样式可以通过 customActionStyle 属性传入，具体使用方法请查看组件文档。而这些操作，你也可以在示例中体验到。</p>
+<p><img src="https://qhstaticssl.kujiale.com/newt/100082/image/png/1603416932433/A8CEBABD0663ECBAEEE7516DF7A7D2B5.png" alt="示例截图"></p>
+<h2 id="4-示例"><a href="#4-示例" class="headerlink" title="4.示例"></a>4.示例</h2><p>那么介绍了这么多关于动态模板的内容，我们能借助动态模板做出怎样的骚操作呢？</p>
+<p>初始状态</p>
+<p><img src="https://qhstaticssl.kujiale.com/newt/100082/image/jpeg/1601360499189/C95F8D892B9D3699F71C65A6B104D0AE.jpg?x-oss-process=image/resize,w_400" alt="初始状态"></p>
+<p>图片处理</p>
+<p><img src="https://qhstaticssl.kujiale.com/newt/100082/image/jpeg/1601360499011/E5EE3DBDE555A053CCF8A6734409E4F9.jpg?x-oss-process=image/resize,w_400" alt="图片处理"></p>
+<p>文字处理</p>
+<p><img src="https://qhstaticssl.kujiale.com/newt/100082/image/jpeg/1601360499450/8F58A08A568287CBEE7993DF90469B81.jpg?x-oss-process=image/resize,w_400" alt="文字处理"></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h3>评论，需翻墙</h3>
+<script src="https://utteranc.es/client.js" repo="Kujiale-Mobile/Blog" issue-term="title" theme="github-light" crossorigin="anonymous" async>
+</script>
+            </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/Kujiale-Mobile" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2020 酷家乐移动前端团队<br></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'kujiale-mobile';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+</body>
+
+</html>

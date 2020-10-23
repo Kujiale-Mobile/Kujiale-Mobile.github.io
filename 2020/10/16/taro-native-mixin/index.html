@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.8.0">
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="介绍本文将会基于我们团队开源的 plugin-taro-wx-mix Taro 插件进行讲解。我们的插件可以帮助有 Taro 原生混合开发需求的 Taro 用户在最少量的修改原生代码的情况下快速进行 Taro 原生混合开发。
+开始1234567891011121314151617// 安装yarn ">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="酷家乐移动前端团队">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Taro 和原生混合开发插件">
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="介绍本文将会基于我们团队开源的 plugin-taro-wx-mix Taro 插件进行讲解。我们的插件可以帮助有 Taro 原生混合开发需求的 Taro 用户在最少量的修改原生代码的情况下快速进行 Taro 原生混合开发。
+开始1234567891011121314151617// 安装yarn ">
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="移动前端团队博客">
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article">
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://yoursite.comhttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg">
+    
+
+        <meta name="twitter:card" content="summary_large_image">
+
+    
+
+    
+        <meta name="twitter:image" content="http://yoursite.comhttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg">
+    
+
+    <!-- Title -->
+    
+    <title>Taro 和原生混合开发插件 - 移动前端团队博客</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+    <link rel="icon" href="https://avatars0.githubusercontent.com/u/40188012?s=200&v=4">
+    
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">酷家乐</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                首页
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                文章目录
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/about">
+                            
+                                关于我们
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/Kujiale-Mobile">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+
+<header>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading" style="margin-top: 10rem">
+                    <h1>
+                        Taro 和原生混合开发插件
+                    </h1>
+
+                    <span style="color: #9EABB3; font-size: 1.5rem;">
+                        <!-- Date and Author -->
+                        
+                        曹麦
+                         | 
+                        
+                        2020-10-16
+                        
+                    </span>
+                    <span style="color: #9EABB3; font-size: 1.5rem;"> | 浏览量：<span id="busuanzi_value_page_pv"></span>次</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+            
+            <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                
+                
+
+
+<a href="/tags/小程序/">#小程序</a> <a href="/tags/混合开发/">#混合开发</a>
+
+
+                
+            </div>
+            <div class="col-lg-4 col-md-5 post-categories">
+                
+                
+
+<a href="/categories/小程序/">小程序</a>
+
+                
+            </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>本文将会基于我们团队开源的 <a href="https://github.com/Kujiale-Mobile/plugin-taro-wx-mix" target="_blank" rel="noopener">plugin-taro-wx-mix</a> Taro 插件进行讲解。我们的插件可以帮助有 Taro 原生混合开发需求的 Taro 用户在最少量的修改原生代码的情况下快速进行 Taro 原生混合开发。</p>
+<h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 安装</span></span><br><span class="line">yarn add plugin-taro-wx-mix -D</span><br><span class="line"><span class="comment">// or</span></span><br><span class="line">npm install plugin-taro-wx-mix -D</span><br><span class="line"></span><br><span class="line"><span class="comment">// 修改项目 config/index.js 中的 plugins 配置为如下：</span></span><br><span class="line"><span class="keyword">const</span> config = &#123;</span><br><span class="line">  ...</span><br><span class="line">  plugins: [</span><br><span class="line">    ...其余插件</span><br><span class="line">    [<span class="string">'plugin-taro-wx-mix'</span>, &#123;</span><br><span class="line">      <span class="comment">// 需要配置原生代码包地址</span></span><br><span class="line">      dir: <span class="string">'src/native'</span></span><br><span class="line">    &#125;]</span><br><span class="line">  ]</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>引入上面依赖之后, 就可以直接在开发环境中使用了。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">config = &#123;</span><br><span class="line">  <span class="comment">// 原生开发包的配置</span></span><br><span class="line">  wxAppJson: &#123;</span><br><span class="line">    pages: [],</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// Taro 开发包的配置</span></span><br><span class="line">  pages: [],</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><h3 id="尝试"><a href="#尝试" class="headerlink" title="尝试"></a>尝试</h3><ol>
+<li>通过 webpack 实现类似 qiankun 的小程序微前端方案</li>
+</ol>
+<ul>
+<li><p>在这个方案中，计划用 webpack 插件通过分包的方法，把不同的小程序包，在 app.js 逻辑抽离的情况下合并成同一个小程序。希望能够让不同版本的 taro 代码，甚至是不同框架的小程序代码，可以在同一个小程序中运行。</p>
+</li>
+<li><p>可惜理想很丰满，现实很骨感。这个方案仅限于可以在 taro 1.x 版本中运行。从 taro 2.x 开始，taro 开始用 webpack 打包，会往 app.js 里面注入很多 Taro 相关的代码。对应的代码包，需要依赖 app.js 才能正常运行。更别说 Taro 3.x 开始，Taro 实现了一套运行时的方案，它是基于 React 和 React-Reconciler 实现的。必须往 app.js 里面注入相关 chunk 来实现 runtime。如果想自己实现一套这样的机制，难度不亚于自己实现一个 taro-runtime。开发成本以及维护成本过高。</p>
+</li>
+</ul>
+<ol start="2">
+<li>通过 Taro convert 把旧代码转换成新的 Taro 代码</li>
+</ol>
+<ul>
+<li><p>Taro 官方为了方便原生用户加入 Taro 的大家庭当中，可以通过 Taro-cli 提供 taro convert 方法，实现原生代码向 Taro 代码的转换。但是这个方案也有很多弊端。</p>
+</li>
+<li><p>这个方法的原理是，通过 Taro with-weapp 这个装饰器把原生代码 App(options) / Page(options) /  Component(options) 的 options 注入到 react 的 class component 内部。在这个过程中就会产生很多问题。class component 的 this 并不是指向原生的 App / Page / Component ，而是指向 class component 的实例。这样会导致原生很多 hack 的代码失效。</p>
+</li>
+</ul>
+<h3 id="最后方案"><a href="#最后方案" class="headerlink" title="最后方案"></a>最后方案</h3><p><a href="https://taro-docs.jd.com/taro/docs/2.2.11/hybrid" target="_blank" rel="noopener">Taro 官方提供了 Taro 和 native 的混写的方案</a>。但是这个方案有很多弊端，经过这个方案打包后的原生代码，会出现很多路径不一致的问题。旧代码和新代码无法很好的解耦。所以我们选择不在 config.pages 里加入原生代码页面路径，避免原生页面被作为 Entry 被打包进了 webpack 流程里，最后通过 Taro 插件的形式，把原生页面路径注入，最后输出的 app.json 里。</p>
+<h2 id="混合开发需要考量的点"><a href="#混合开发需要考量的点" class="headerlink" title="混合开发需要考量的点"></a>混合开发需要考量的点</h2><p>如果说在 pc 端微前端的方案是为了解耦不同历史依赖，那么在内存有限性能有限的小程序开发中，我们要处理的第一件事情就是要统一不同技术栈之间的依赖。在我们设计的混合开发方案当中，旧包的依赖是直接复制到新包的，这就会造成有些依赖在新旧包之间重复引入，在寸土寸金的小程序中这种内存的浪费是致命的。</p>
+<h3 id="如何解决？"><a href="#如何解决？" class="headerlink" title="如何解决？"></a>如何解决？</h3><p>App.js 是一个很好的资源共享池，所以我们决定以原生代码的 getApp 作为共享资源的入口，让原生代码的依赖，都集中到 getApp 处引入，让原生代码能直接引入新代码依赖。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 新包的 app.js 需要传入原生代码目录的名字。</span></span><br><span class="line"><span class="built_in">require</span>(<span class="string">'./mixin'</span>)(<span class="string">'sample'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// mixin.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="params">nativeDirName</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> oldApp = App;</span><br><span class="line">  <span class="keyword">let</span> options;</span><br><span class="line">  App = <span class="function"><span class="params">option</span> =&gt;</span> &#123;</span><br><span class="line">    options = option;</span><br><span class="line">  &#125;;</span><br><span class="line">  (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">require</span>(<span class="string">`./<span class="subst">$&#123;nativeDirName&#125;</span>/app.js`</span>);</span><br><span class="line">  &#125;)();</span><br><span class="line">  App = oldApp;</span><br><span class="line">  <span class="keyword">const</span> oldGetApp = getApp;</span><br><span class="line">  <span class="keyword">let</span> res = <span class="built_in">Object</span>.assign(options, oldGetApp(), &#123;</span><br><span class="line">     ...需要被新代码覆盖的资源</span><br><span class="line">  &#125;);</span><br><span class="line">  getApp = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/12029924/94551720-62b88600-0288-11eb-9474-8766e130c006.png" alt="image"></p>
+<h3 id="如何覆盖？"><a href="#如何覆盖？" class="headerlink" title="如何覆盖？"></a>如何覆盖？</h3><p>随后我们就遇到了下一个问题，我们需要确认哪些资源是可以共享的，哪些资源是要被覆盖的，哪些依赖已经被更新了，但用法不兼容的。</p>
+<h4 id="技术方式："><a href="#技术方式：" class="headerlink" title="技术方式："></a>技术方式：</h4><ol>
+<li><strong>共享</strong>，一些状态管理，以及没有经历什么迭代的工具函数，我们共享同一份就可以了。</li>
+<li><strong>覆盖</strong>，一些旧包代码可能已经落后于新的依赖了，如我们加入很多新业务逻辑 Request 库。但新依赖依然兼容旧依赖，这部分我们可以直接覆盖旧的代码。覆盖的同时，要观察旧包代码，看看新依赖是否涵盖了旧包代码一些重复的业务逻辑以保证旧代码的洁净。</li>
+<li><strong>兼容</strong>，新旧依赖之间还可能存在作用相同，但 api 不同的情况。例如在旧包里，我们自己实现了一个 eventCenter，功能和 Taro 的 eventCenter 相同，但是 Taro 的更强大。为了最少量的修改旧包代码逻辑，在 Taro eventCenter 的基础上进行兼容封装，让 Taro eventCenter 直接能在旧包上使用。</li>
+</ol>
+<h3 id="更新迭代"><a href="#更新迭代" class="headerlink" title="更新迭代"></a>更新迭代</h3><p>新版本的更新迭代，旧包还是不可避免要进行修改。在这个问题上只能去权衡，哪些页面需要继续使用旧代码，哪些页面适合重写。</p>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>我们的混合方案未必能满足大家混合开发的需求，不过希望能给大家一点启发。也欢迎大家来我们插件的 repo 点个 star。<a href="https://github.com/Kujiale-Mobile/plugin-taro-wx-mix" target="_blank" rel="noopener">plugin-taro-wx-mix</a>。</p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h3>评论，需翻墙</h3>
+<script src="https://utteranc.es/client.js" repo="Kujiale-Mobile/Blog" issue-term="title" theme="github-light" crossorigin="anonymous" async>
+</script>
+            </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/Kujiale-Mobile" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2020 酷家乐移动前端团队<br></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'kujiale-mobile';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+</body>
+
+</html>
